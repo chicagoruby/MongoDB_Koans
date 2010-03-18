@@ -1,0 +1,149 @@
+=MongoDB Ruby Driver Koans
+
+Written for Chicago Ruby by Ginny Hendry and Nola Stowe
+
+Based on http://github.com/edgecase/ruby_koans
+
+Requires: 	Ruby 1.8.x or later
+           	Rake (any version)
+           	MongoDB
+           	gem install mongo
+
+Recommended:	gem install mongo_ext   
+
+           
+
+
+=EdgeCase Ruby Koans, Original Readme 
+
+The Ruby Koans walk you along the path to enlightenment in order to learn Ruby. 
+The goal is to learn the Ruby language, syntax, structure, and some common 
+functions and libraries. We also teach you culture. Testing is not just something we
+pay lip service to, but something we live.  It is essential in your quest to learn 
+and do great things in the language.  
+
+== The Structure
+
+The koans are broken out into areas by file, hashes are covered in about_hashes.rb, 
+modules are introduced in about_modules.rb, etc.  They are presented in order in the 
+path_to_enlightenment.rb file.  
+
+Each koan builds up your knowledge of Ruby and builds upon itself.  It will stop at 
+the first place you need to correct.  
+
+Some koans simply need to have the correct answer substituted for an incorrect one. 
+Some, however, require you to supply your own answer.  If you see the method +__+ (a 
+double underscore) listed, it is a hint to you to supply your own code in order to 
+make it work correctly.  
+
+== Installing Ruby
+
+If you do not have Ruby setup, please visit http://ruby-lang.org/en/downloads/ for 
+operating specific instructions.  In order to run this you need ruby and rake 
+installed. To check the installations simply type:
+
+*nix platforms from any terminal window:
+
+   [~] $ ruby --version
+   [~] $ rake --version
+
+Windows from the command prompt (cmd.exe)
+
+   c:\ruby --version 
+   c:\rake --version
+   
+Any response for Ruby with a version number greater than 1.8 is fine (should be 
+around 1.8.6 or more). Any version of rake will do.  
+
+== The Path To Enlightenment
+
+You can run the tests through rake or by calling the file itself (rake is the
+recommended way to run them as we might build more functionality into this task).
+
+*nix platforms, from the koans directory
+
+    [ruby_koans] $ rake                           # runs the default target :walk_the_path
+    [ruby_koans] $ ruby path_to_enlightenment.rb  # simply call the file directly
+    
+Windows is the same thing
+
+    c:\ruby_koans\rake                             # runs the default target :walk_the_path
+    c:\ruby_koans\ruby path_to_enlightenment.rb    # simply call the file directly
+    
+=== Red, Green, Refactor
+
+In test-driven development the mantra has always been, red, green, refactor.  Write a
+failing test and run it (red), make the test pass (green), then refactor it (that is
+look at the code and see if you can make it any better.  In this case you will need
+to run the koan and see it fail (red), make the test pass (green), then take a 
+moment and reflect upon the test to see what it is teaching you and improve the
+code to better communicate its intent (refactor).
+
+The very first time you run it you will see the following output:
+
+    [ ruby_koans ] $ rake
+    (in /Users/person/dev/ruby_koans)
+    cd koans
+    
+    Thinking AboutAsserts
+      test_assert_truth has damaged your karma.
+    
+    You have not yet reached enlightenment ...
+    <false> is not true.
+    
+    Please meditate on the following code:
+    ./about_basics.rb:10:in `test_assert_truth'
+    path_to_enlightenment.rb:27
+
+    mountains are merely mountains
+    
+You have come to your first stage. If you notice it is telling you where to look for
+the first solution:
+
+    Please meditate on the following code:
+    ./about_basics.rb:10:in `test_assert_truth'
+    path_to_enlightenment.rb:27
+    
+We then open up the about_basics.rb file and look at the first test:
+
+    # We shall contemplate truth by testing reality, via asserts.
+    def test_assert_truth
+      assert false                # This should be true
+    end
+
+We then change the +false+ to +true+ and run the test again.  After you are
+done, think about what you are learning.  In this case, ignore everything except
+the method name (+test_assert_truth+) and the parts inside the method (everything 
+before the +end+).  
+ 
+In this case the goal is for you to see that if you pass a value to the +assert+ 
+method, it will either ensure it is +true+ and continue on, or fail if in fact
+the statement is +false+.   
+ 
+== Inspiration
+
+A special thanks to Mike Clark and Ara Howard for inspiring this project.  Mike Clark
+wrote an excellent blog post about learning Ruby through unit testing. This sparked 
+an idea that has taken a bit to solidify, that of bringing new rubyists into the 
+community through testing. Ara Howard then gave us the idea for the Koans in his 
+ruby quiz entry an Meta Koans (a must for any rubyist wanting to improve their skills).
+
+Mike Clark's post ::  http://www.clarkware.com/cgi/blosxom/2005/03/18
+Meta Koans        ::  http://rubyquiz.com/quiz67.html
+
+== Other Resources
+
+The Ruby Language               ::  http://ruby-lang.org
+Try Ruby in your browser        ::  http://tryruby.sophrinix.com
+
+Dave Thomas' introduction to Ruby Programming Ruby (the Pick Axe) ::  http://pragprog.com/titles/ruby/programming-ruby
+
+Brian Marick's fantastic guide for beginners Everyday Scripting with Ruby    ::  http://pragprog.com/titles/bmsft/everyday-scripting-with-ruby
+
+= Other stuff
+
+Author::   Jim Weirich <jim@weirichhouse.org>
+Author::   Joe O'Brien <joe@edgecase.com>
+Requires:: Ruby 1.8.x or later and Rake (any version)
+
+
