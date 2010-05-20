@@ -1,19 +1,19 @@
 #!/usr/bin/env ruby
 # -*- ruby -*-
-
+  
 require 'edgecase'
 
 class AboutAsserts < EdgeCase::Koan
 
   # We shall contemplate truth by testing reality, via asserts.
   def test_assert_truth
-    assert true                # This should be true
+    assert nil                # This should be true
   end
 
   # Enlightenment may be more easily achieved with appropriate
   # messages.
   def test_assert_with_message
-    assert true, "This should be true -- Please fix this"
+    assert false, "This should be true -- Please fix this"
   end
 
   # To understand reality, we must compare our expectations against
@@ -22,7 +22,7 @@ class AboutAsserts < EdgeCase::Koan
     expected_value = 2
     actual_value = 1 + 1
 
-    assert expected_value == actual_value
+    assert expected_value != actual_value
   end
 
   # Some ways of asserting equality are better than others.
@@ -30,11 +30,11 @@ class AboutAsserts < EdgeCase::Koan
     expected_value = 2
     actual_value = 1 + 1
 
-    assert_equal expected_value, actual_value
+    assert_equal __, actual_value
   end
 
   # Sometimes we will ask you to fill in the values
   def test_fill_in_values
-    assert_equal 2, 1 + 1
+    assert_equal __, 1 + 1
   end
 end

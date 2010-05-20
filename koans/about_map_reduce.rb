@@ -36,8 +36,8 @@ class AboutMapReduce < EdgeCase::Koan
     reduce = "function(key, values) { var sum = 0; values.forEach(function(doc) { sum += doc.votes; }); return {votes: sum}; }"
 
     assert_equal 3, @comments.map_reduce(map, reduce).count
-    assert_equal 'ghendry', @comments.map_reduce(map, reduce).find.first['_id']
-    assert_equal 6, @comments.map_reduce(map, reduce).find.first['value']['votes']
+    assert_equal __, @comments.map_reduce(map, reduce).find.first['_id']
+    assert_equal __, @comments.map_reduce(map, reduce).find.first['value']['votes']
   end
   
   def test_map_reduce_with_query
@@ -45,8 +45,8 @@ class AboutMapReduce < EdgeCase::Koan
     reduce = "function(key, values) { var sum = 0; values.forEach(function(doc) { sum += doc.votes; }); return {votes: sum}; }"
 
     assert_equal 3, @comments.map_reduce(map, reduce, {:query => {:votes => {'$gt' => 1}}}).count
-    assert_equal 'ghendry', @comments.map_reduce(map, reduce, {:query => {:votes => {'$gt' => 1}}}).find.first['_id']
-    assert_equal 5, @comments.map_reduce(map, reduce, {:query => {:votes => {'$gt' => 1}}}).find.first['value']['votes']
+    assert_equal 'ghendry', @comments.map_reduce(map, reduce, {:query => {:votes => {'$gt' => 1}}}).find.first['value']
+    assert_equal __, @comments.map_reduce(map, reduce, {:query => {:votes => {'$gt' => 1}}}).find.first['value']['votes']
   end
 
 end

@@ -4,14 +4,22 @@ Written for Chicago Ruby by Ginny Hendry and Nola Stowe
 
 Based on http://github.com/edgecase/ruby_koans
 
-Requires: 	Ruby 1.8.x or later
-           	Rake (any version)
-           	MongoDB
-           	gem install mongo
+Requires: 	
+* Ruby 1.8.x or later
+* Rake (any version)
+* MongoDB 1.4.2 or later
+* gem install mongo
+* gem install bson
 
-Recommended:	gem install mongo_ext   
+Recommended:	gem install bson_ext   
 
-           
+To run:
+* Download source
+* cd to that directory
+* rake
+* Edit program file that reported an error
+* Fix one error only!  and think about what you learned
+* and run rake again 
 
 
 =EdgeCase Ruby Koans, Original Readme 
