@@ -27,7 +27,7 @@ class AboutMapReduce < EdgeCase::Koan
   
   def teardown
     @db.collections.each do |collection|
-      @db.drop_collection(collection.name)
+      @db.drop_collection(collection.name) unless collection.name =~ /indexes$/
     end
   end
   

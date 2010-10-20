@@ -24,7 +24,7 @@ class AboutUpdates < EdgeCase::Koan
   
   def teardown
     @db.collections.each do |collection|
-      @db.drop_collection(collection.name)
+      @db.drop_collection(collection.name) unless collection.name =~ /indexes$/
     end
   end
   
@@ -82,13 +82,13 @@ class AboutUpdates < EdgeCase::Koan
 
   def test_check_status
     @pix.update({:file => 'pic1.jpg'}, {'$push' => {:tags => 'people'}})
-    assert !@db.last_status["updatedExisting"], "Update failed"
+    assert !@db.get_last_error["updatedExisting"], "Update failed"
     @pix.update({:file => 'pic1.jpg'}, {'$push' => {:camera => 'Canon'}})
-    assert_not_nil @db.last_status["updatedExisting"], "Update not permitted"
+    assert_not_nil @db.get_last_error["updatedExisting"], "Update not permitted"
 
-    #when update works last_status is {"err"=>nil, "updatedExisting"=>true, "n"=>1, "ok"=>1.0}
-    #when update fails last_status is {"err"=>nil, "updatedExisting"=>false, "n"=>0, "ok"=>1.0}
-    #when update is not permitted last_status is {"err"=>"Cannot apply $push/$pushAll modifier to non-array", "n"=>0, "ok"=>1.0}
+    #when update works get_last_error is {"err"=>nil, "updatedExisting"=>true, "n"=>1, "ok"=>1.0}
+    #when update fails get_last_error is {"err"=>nil, "updatedExisting"=>false, "n"=>0, "ok"=>1.0}
+    #when update is not permitted get_last_error is {"err"=>"Cannot apply $push/$pushAll modifier to non-array", "code"=>10141, "n"=>0, "ok"=>1.0}
   end
 
   def test_pop

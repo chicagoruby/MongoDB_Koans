@@ -15,7 +15,7 @@ class AboutDataTypes < EdgeCase::Koan
   
   def teardown
     @db.collections.each do |collection|
-      @db.drop_collection(collection.name)
+      @db.drop_collection(collection.name) unless collection.name =~ /indexes$/
     end
   end
   
@@ -51,7 +51,7 @@ class AboutDataTypes < EdgeCase::Koan
   end
   def test_nil
     @col.insert({:value => nil})
-    assert_instance_of ___, @col.find_one['value']
+    assert_instance_of___, @col.find_one['value']
   end
   def test_not_attribute
     @col.insert({:value => true})

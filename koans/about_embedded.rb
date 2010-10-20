@@ -29,7 +29,7 @@ class AboutEmbeddedDocuments < EdgeCase::Koan
   
   def teardown
     @db.collections.each do |collection|
-      @db.drop_collection(collection.name)
+      @db.drop_collection(collection.name) unless collection.name =~ /indexes$/
     end
   end
 
@@ -64,7 +64,7 @@ class AboutEmbeddedDocuments < EdgeCase::Koan
   def test_indexed_query
     @embedded.create_index('lines.item')
     assert_equal __, @embedded.find({'lines.item' => 'widget'}).count 
-    assert_equal __, @embedded.find({'lines.item' => 'widget'}).explain['indexBounds'][0][0]['lines.item']
+    assert_equal __, @embedded.find({'lines.item' => 'widget'}).explain['indexBounds']['lines.item'][0][0]
   end
 
 end
