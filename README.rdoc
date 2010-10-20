@@ -2,12 +2,12 @@
 
 Written for Chicago Ruby by Ginny Hendry and Nola Stowe
 
-Based on http://github.com/edgecase/ruby_koans
+Based on http://rubykoans.com/ and http://github.com/edgecase/ruby_koans
 
 Requires: 	
-* Ruby 1.8.x or later
+* Ruby 1.8.7 or later
 * Rake (any version)
-* MongoDB 1.4.2 or later
+* MongoDB 1.6.3 or later
 * gem install mongo
 * gem install bson
 
